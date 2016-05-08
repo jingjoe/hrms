@@ -12,7 +12,7 @@ $this->params['breadcrumbs'][] = ['label' => 'โปรแกรมความ�
 ?>
 <div class="program-create">
 
- <div class="panel panel-info">
+    <div class="bg-success">
         <div class="panel-body">
             <h3><?= Html::encode($this->title) ?></h3>
         </div>
@@ -24,5 +24,4 @@ $this->params['breadcrumbs'][] = ['label' => 'โปรแกรมความ�
             ?>
         </div>
     </div>
-
 </div>

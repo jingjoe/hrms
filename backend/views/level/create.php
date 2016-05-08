@@ -10,8 +10,7 @@ $this->title = 'เพิ่มระดับความรุนแรง';
 $this->params['breadcrumbs'][] = ['label' => 'ระดับความรุนแรง', 'url' => ['index']];
 ?>
 <div class="level-create">
-
-   <div class="panel panel-info">
+ <div class="bg-success">
         <div class="panel-body">
             <h3><?= Html::encode($this->title) ?></h3>
         </div>
@@ -23,5 +22,4 @@ $this->params['breadcrumbs'][] = ['label' => 'ระดับความรุ�
             ?>
         </div>
     </div>
-
 </div>

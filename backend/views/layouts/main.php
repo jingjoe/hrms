@@ -15,12 +15,12 @@ AppAsset::register($this);
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">
+<link rel="shortcut icon" href="<?php echo Yii::$app->request->baseUrl; ?>/images/favicon.ico" type="image/x-icon" />
 <head>
     <meta charset="<?= Yii::$app->charset ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
-        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <?php $this->head() ?>
 </head>
 <body>
@@ -39,7 +39,8 @@ AppAsset::register($this);
         ['label' => 'หน้าหลัก', 'url' => ['site/index']],
         ['label' => 'ตั้งค่าระบบ', 'items' => [
             ['label' => 'ข้อมูลโรงพยาบาล','url' => ['hospital/index']],
-            ['label' => 'จัดการผู้ใช้งาน','url' => ['user/index']],
+            ['label' => 'ผู้ใช้งานระบบ','url' => ['user/index']],
+            ['label' => 'สิทธิผู้ใช้งาน','url' => ['user-role/index']],
             ['label' => 'เพิ่มฝ่ายและแผนก','url' => ['department/index']],
             ['label' => 'ทีมนำโรงพยาบาล','url' => ['team/index']],
             ['label' => 'สถานที่เกิดความเสี่ยง','url' => ['location/index']],

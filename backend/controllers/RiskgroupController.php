@@ -17,13 +17,41 @@ class RiskgroupController extends Controller
     /**
      * @inheritdoc
      */
-    public function behaviors()
-    {
+     public function behaviors() {
+        
+        $role = isset(Yii::$app->user->identity->role) ? Yii::$app->user->identity->role : 99;
+
+        $arr = array();
+        if ($role == 1) {
+            $arr = ['index', 'view', 'create', 'update', 'delete',];
+        } else {
+            $arr = [''];
+        }
+     
         return [
+            'access' => [
+                'class' => \yii\filters\AccessControl::className(),
+                'denyCallback' => function ($rule, $action) {
+                    throw new \yii\web\ForbiddenHttpException("คุณไม่ได้รับอนุญาต");
+                },
+                'only' => ['index', 'view', 'create', 'update', 'delete'],
+                'rules' => [
+                    [
+                        'allow' => TRUE,
+                        'actions' => $arr,
+                        'roles' => ['?'],
+                    ],
+                    [
+                        'allow' => TRUE,
+                        'actions' => $arr,
+                        'roles' => ['@'],
+                    ],
+                ],
+            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
-                    'delete' => ['POST'],
+                    'delete' => ['post'],
                 ],
             ],
         ];

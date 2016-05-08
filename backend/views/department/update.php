@@ -10,7 +10,7 @@ $this->params['breadcrumbs'][] = ['label' => 'แผนก', 'url' => ['index']]
 
 ?>
 <div class="department-update">
-      <div class="panel panel-info">
+    <div class="bg-warning">
         <div class="panel-body">
             <h3><?= Html::encode($this->title) ?></h3>
         </div>

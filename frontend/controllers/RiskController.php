@@ -27,16 +27,43 @@ use yii\helpers\Url;
  */
 class RiskController extends Controller
 {
-    /**
-     * @inheritdoc
-     */
-    public function behaviors()
-    {
+    public $enableCsrfValidation = false;
+
+    public function behaviors() {
+
+        $role = 0;
+        if (!Yii::$app->user->isGuest) {
+            $role = Yii::$app->user->identity->role;
+        }
+        $arr = ['index'];
+        if ($role != 0) {
+            $arr = ['index', 'view', 'create', 'update', 'delete'];
+        }
+
         return [
+            'access' => [
+                'class' => \yii\filters\AccessControl::className(),
+                'denyCallback' => function ($rule, $action) {
+                    throw new \yii\web\ForbiddenHttpException("คุณไม่ได้รับอนุญาต");
+                },
+                'only' => ['index', 'view', 'create', 'update', 'delete', 'importall'],
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'actions' => $arr,
+                        'roles' => ['@'],
+                    ],
+                    [
+                        'allow' => true,
+                        'actions' => $arr,
+                        'roles' => ['@'],
+                    ],
+                ],
+            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
-                    'delete' => ['POST'],
+                    'delete' => ['post'],
                 ],
             ],
         ];

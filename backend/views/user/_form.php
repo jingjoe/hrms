@@ -26,7 +26,7 @@ use backend\models\UserStatus;
     <?= $form->field($model, 'status')->dropDownList(ArrayHelper::map(UserStatus::find()->all(), 'status_id', 'status_name')); ?>
 
     <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? 'บันทึก' : 'ปรับปรุง', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::submitButton('<i class="glyphicon glyphicon-floppy-save"></i> ' . ($model->isNewRecord ? 'บันทึก' : 'แก้ไข'), ['class' => ($model->isNewRecord ? 'btn btn-success' : 'btn btn-warning') . ' btn-lg btn-block']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

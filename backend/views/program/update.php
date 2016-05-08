@@ -9,7 +9,7 @@ $this->title = 'ปรับปรุงโปรแกรมความเส�
 $this->params['breadcrumbs'][] = ['label' => 'โปรแกรมความเสี่ยง', 'url' => ['index']];
 ?>
 <div class="program-update">
-      <div class="panel panel-info">
+    <div class="bg-warning">
         <div class="panel-body">
             <h3><?= Html::encode($this->title) ?></h3>
         </div>
@@ -21,5 +21,4 @@ $this->params['breadcrumbs'][] = ['label' => 'โปรแกรมความ�
             ?>
         </div>
     </div>
-
 </div>

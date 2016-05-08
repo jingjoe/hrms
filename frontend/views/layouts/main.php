@@ -14,12 +14,13 @@ AppAsset::register($this);
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">
+<link rel="shortcut icon" href="<?php echo Yii::$app->request->baseUrl; ?>/images/favicon.ico" type="image/x-icon" />
     <head>
         <meta charset="<?= Yii::$app->charset ?>">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <?= Html::csrfMetaTags() ?>
         <title><?= Html::encode($this->title) ?></title>
-        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<!-- <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />-->
         <?php $this->head() ?>
     </head>
     <body>
@@ -70,7 +71,7 @@ AppAsset::register($this);
             $menuItems = [
 
                 ['label' => 'หน้าหลัก', 'url' => ['/site/index']],
-                ['label' => 'ความเสี่ยง', 'items' => $risk_mnu_itms],
+                ['label' => 'พบความเสี่ยง', 'items' => $risk_mnu_itms],
                 ['label' => 'รายงาน', 'url' => ['/risk/report']],
                 ['label' => 'ช่วยเหลือ', 'items' => $help_mnu_itms],
                 ['label' => 'ผู้ใช้งาน' . $username, 'items' => $submenuItems],

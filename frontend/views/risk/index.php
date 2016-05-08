@@ -1,51 +1,66 @@
 <?php
 
 use yii\helpers\Html;
-use yii\grid\GridView;
+use kartik\grid\GridView;
 use yii\widgets\Pjax;
+
 /* @var $this yii\web\View */
 /* @var $searchModel frontend\models\RiskSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Risks';
+$this->title = 'รายงานความเสี่ยง';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="risk-index">
-
-    <h1><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
-    <p>
-        <?= Html::a('Create Risk', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
-<?php Pjax::begin(); ?>    <?= GridView::widget([
+    <div class="row">
+        <div class="col-md-12 col-xs-12">
+            <div class="pull-right">
+                    <div class="form-inline">
+                        <?php echo $this->render('_search', ['model' => $searchModel]); ?>
+                    </div>
+            </div>
+        </div>
+    </div>
+<?php Pjax::begin(); ?>    
+    <?= GridView::widget([
         'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
+        //'filterModel' => $searchModel,
+        'panel' => [
+        'heading'=>'<h3 class="panel-title"><i class="glyphicon glyphicon-th-list"></i> รายงานความเสี่ยง</h3>',
+        'type'=>'success',
+        'before'=>Html::a('<i class="glyphicon glyphicon-plus"></i> เพิ่มความเสี่ยง', ['create'], ['class' => 'btn btn-success']),
+        'after'=>Html::a('<i class="glyphicon glyphicon-repeat"></i> รีเซ็ต', ['index'], ['class' => 'btn btn-default']),
+        'footer'=>false
+        ],
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
+            //'id',
             'date_report',
             'time_report',
             'period',
-            'depart_group_id',
+            //'depart_group_id',
             // 'depart_id',
-            // 'riskstore_id',
-            // 'more_detail:ntext',
-            // 'location_id',
-            // 'risklevel_id',
-            // 'type_id',
+            'storename',
+            'more_detail:ntext',
+               'locationname',
+               'levelname',
+               'typename',
             // 'group_id',
             // 'level_warning',
             // 'act',
             // 'problem_basic:ntext',
             // 'image:ntext',
-            // 'created_by',
+            'loginname',
             // 'updated_by',
             // 'create_date',
             // 'modify_date',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            ['class' => 'yii\grid\ActionColumn', 
+                'template' => '{view}<span class="glyphicon glyphicon-option-vertical"></span>{update}<span class="glyphicon glyphicon-option-vertical"></span>{delete}'
+            ], 
         ],
     ]); ?>
-<?php Pjax::end(); ?></div>
+<?php Pjax::end(); ?>
+</div>
+<?= \bluezed\scrollTop\ScrollTop::widget() ?>

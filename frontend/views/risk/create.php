@@ -6,16 +6,21 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model frontend\models\Risk */
 
-$this->title = 'Create Risk';
-$this->params['breadcrumbs'][] = ['label' => 'Risks', 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
+$this->title = 'เพิ่มความเสี่ยง';
+$this->params['breadcrumbs'][] = ['label' => 'รายงานความเสี่ยง', 'url' => ['index']];
 ?>
 <div class="risk-create">
-
-    <h1><?= Html::encode($this->title) ?></h1>
-
-    <?= $this->render('_form', [
-        'model' => $model,
-    ]) ?>
+    <div class="bg-success">
+        <div class="panel-body">
+            <h3><?= Html::encode($this->title) ?></h3>
+        </div>
+        <div class="panel-footer">
+            <?=
+            $this->render('_form', [
+                'model' => $model,
+            ])
+            ?>
+        </div>
+    </div>
 
 </div>

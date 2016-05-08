@@ -11,7 +11,7 @@ $this->params['breadcrumbs'][] = ['label' => 'ฝ่าย', 'url' => ['index']]
 ?>
 
 <div class="department-group-update">
-      <div class="panel panel-info">
+       <div class="bg-warning">
         <div class="panel-body">
             <h3><?= Html::encode($this->title) ?></h3>
         </div>

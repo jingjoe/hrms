@@ -9,7 +9,7 @@ use yii\db\Expression;
 use yii\web\UploadedFile;
 use yii\helpers\Html;
 use yii\helpers\ArrayHelper;
-use yii\models\User;
+use common\models\User;
 
 //use backend\models
 use backend\models\Department;
@@ -101,7 +101,7 @@ class Risk extends \yii\db\ActiveRecord
             'depart_group_id' => 'ฝ่าย',
             'depart_id' => 'แผนก',
             'riskstore_id' => 'ชื่อความเสี่ยง',
-            'more_detail' => 'รายละเอียดเพิ่มเติม',
+            'more_detail' => 'รายละเอียด',
             'location_id' => 'สถานที่พบเหตุ',
             'risklevel_id' => 'ระดับความรุนแรง',
             'type_id' => 'ประเภทความเสี่ยง',
@@ -110,13 +110,23 @@ class Risk extends \yii\db\ActiveRecord
             'act' => 'เชิงรับ-เชิงรุก',
             'problem_basic' => 'การแก้ปัญหาเบื้องต้น',
             'image' => 'ภาพประกอบ',
-            'created_by' => 'บันทึกโดย',
+            'created_by' => 'ผู้รายงาน',
             'updated_by' => 'อับเดทโดย',
             'create_date' => 'วันบันทึก',
             'modify_date' => 'วันปรับปรุง',
         // เพิ่มฟิวล์ใหม่ จาก funtion get  relation
             'departname' => 'แผนก',
             'departgroupname' => 'ฝ่าย',
+            'typename' => 'ประเภทความเสี่ยง',
+            'groupname' => 'กลุ่มความเสี่ยง',
+            'programname' => 'โปรแกรมความเสี่ยง',
+            'levelname' => 'ระดับ',
+            'teamname' => 'ทีมนำ',
+            'locationname' => 'สถานที่พบเหตุ',
+            'storename' => 'ชื่อความเสี่ยง',
+            'loginname' => 'รายงานโดย',
+            'updatename' => 'อับเดทโดย',
+            
         ];
     }
 // get แผนก
@@ -126,6 +136,7 @@ class Risk extends \yii\db\ActiveRecord
     public function getDepartname() {
         return @$this->depart->depart_name;
     }
+    
 // get ฝ่าย
     public function getDepartgroup() {
         return @$this->hasOne(DepartmentGroup::className(), ['depart_group_id' => 'depart_group_id']);
@@ -133,7 +144,80 @@ class Risk extends \yii\db\ActiveRecord
     public function getDepartgroupname() {
         return @$this->departgroup->depart_group_name;
     }
- 
+    
+ // get ชื่อผู้บันทึก
+    public function getLogin() {
+        return @$this->hasOne(User::className(), ['id' => 'created_by']);
+    }
+    public function getLoginname() {
+        return @$this->login->username;
+    }
+    
+// get ชื่อผู้อับเดท
+    public function getUpdate() {
+        return @$this->hasOne(User::className(), ['id' => 'updated_by']);
+    }
+    public function getUpdatename() {
+        return @$this->update->username;
+    }
+    
+  // get ประเภทความเสี่ยง
+        public function getType() {
+        return @$this->hasOne(Type::className(), ['id' => 'type_id']);
+    }
+    public function getTypename() {
+        return @$this->type->name;
+    }
+    
+ // get กลุ่มความเสี่ยง
+        public function getRiskgroup() {
+        return @$this->hasOne(Riskgroup::className(), ['id' => 'group_id']);
+    }
+    public function getGroupname() {
+        return @$this->riskgroup->name;
+    }
+    
+ // get โปรแกรมความเสี่ยง
+        public function getProgram() {
+        return @$this->hasOne(Program::className(), ['id' => 'program_id']);
+    }
+    public function getProgramname() {
+        return @$this->program->name;
+    }
+    
+// get ระดับความเสี่ยง
+        public function getLevel() {
+        return @$this->hasOne(Level::className(), ['id' => 'risklevel_id']);
+    }
+    public function getLevelname() {
+        return @$this->level->level_id;
+    }
+    
+// get ชื่อทีมนำ
+        public function getTeam() {
+        return @$this->hasOne(Team::className(), ['id' => 'team_id']);
+    }
+    public function getTeamname() {
+        return @$this->team->name;
+    }
+    
+ // get ชื่อสถานที่
+        public function getLocation() {
+        return @$this->hasOne(Location::className(), ['id' => 'location_id']);
+    }
+    public function getLocationname() {
+        return @$this->location->name;
+    } 
+    
+  // get ชื่อความเสี่ยงจากระบบ
+        public function getRiskstore() {
+        return @$this->hasOne(Riskstore::className(), ['id' => 'riskstore_id']);
+    }
+    public function getStorename() {
+        return @$this->riskstore->name;
+    }    
+    
+    
 // funtion Part Upload file
 
     public function getUploadPath(){

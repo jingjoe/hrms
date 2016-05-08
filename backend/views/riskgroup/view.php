@@ -11,23 +11,24 @@ $this->params['breadcrumbs'][] = ['label' => 'กลุ่มความเส�
 
 ?>
 <div class="riskgroup-view">
-    <div class="panel panel-info">
-            <div class="panel-body">
-                <h3><?= Html::encode($this->title) ?></h3>
-                <p>
-                    <?= Html::a('ปรับปรุง', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-                    <?=
-                    Html::a('ลบ', ['delete', 'id' => $model->id], [
-                        'class' => 'btn btn-danger',
-                        'data' => [
-                            'confirm' => 'Are you sure you want to delete this item?',
-                            'method' => 'post',
-                        ],
-                    ])
-                    ?>
-                </p>
-            </div>
-            <div class="panel-footer">
+    <p>
+        <?= Html::a('<i class="glyphicon glyphicon-edit"></i> แก้ไข', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?=
+        Html::a('<i class="glyphicon glyphicon-trash"></i> ลบ', ['delete', 'id' => $model->id], [
+            'class' => 'btn btn-danger',
+            'data' => [
+                'confirm' => 'คุณแน่ใจหรือว่าต้องการลบรายการนี้หรือไม่ ?',
+                'method' => 'post',
+            ],
+        ])
+        ?>
+    </p>
+
+
+    <div class="panel panel-success">
+        <div class="panel-body">
+            <h3><?= Html::encode($this->title) ?></h3>
+        </div>
 
     <?= DetailView::widget([
         'model' => $model,
@@ -36,6 +37,6 @@ $this->params['breadcrumbs'][] = ['label' => 'กลุ่มความเส�
             'name',
         ],
     ]) ?>
+    </div>
 </div>
-  </div>
-        </div>
+<?= \bluezed\scrollTop\ScrollTop::widget() ?>

@@ -29,7 +29,7 @@ class TeamController extends Controller
             'access' => [
                 'class' => \yii\filters\AccessControl::className(),
                 'denyCallback' => function ($rule, $action) {
-                    throw new \yii\web\ForbiddenHttpException("ไม่ได้รับอนุญาต");
+                    throw new \yii\web\ForbiddenHttpException("คุณไม่ได้รับอนุญาต");
                 },
                 'only' => ['index', 'view', 'create', 'update', 'delete'],
                 'rules' => [

@@ -10,8 +10,7 @@ $this->params['breadcrumbs'][] = ['label' => 'ระดับความรุ�
 
 ?>
 <div class="level-update">
-
-    <div class="panel panel-info">
+    <div class="bg-warning">
         <div class="panel-body">
             <h3><?= Html::encode($this->title) ?></h3>
         </div>

@@ -768,12 +768,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/kartik-v/yii2-krajee-base.git",
-                "reference": "314f3b31990870856dbdf5f9bf5192ee683a386a"
+                "reference": "7f7a45ffe193fe673f72b9effc01b08499f2a454"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kartik-v/yii2-krajee-base/zipball/314f3b31990870856dbdf5f9bf5192ee683a386a",
-                "reference": "314f3b31990870856dbdf5f9bf5192ee683a386a",
+                "url": "https://api.github.com/repos/kartik-v/yii2-krajee-base/zipball/7f7a45ffe193fe673f72b9effc01b08499f2a454",
+                "reference": "7f7a45ffe193fe673f72b9effc01b08499f2a454",
                 "shasum": ""
             },
             "require": {
@@ -811,7 +811,7 @@
                 "widget",
                 "yii2"
             ],
-            "time": "2016-04-28 03:01:32"
+            "time": "2016-05-07 19:45:52"
         },
         {
             "name": "kartik-v/yii2-mpdf",

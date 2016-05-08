@@ -12,8 +12,9 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="department-index">
     <div class="row">
-        <div class="col-md-6 col-xs-12">
-            <?= Html::a('<span class="glyphicon glyphicon-plus"></span> บันทึกฝ่าย', ['department-group/index'], ['class' => 'btn btn-danger', 'title' => 'บันทึกฝ่าย',]) ?>
+        <div class="col-md-6 col-xs-12">          
+            <?= Html::a('1 <span class="glyphicon glyphicon-plus"></span> บันทึกฝ่าย', ['department-group/index'], ['class' => 'btn btn-danger', 'title' => 'บันทึกฝ่าย',]) ?>
+            <?= Html::a('2 <span class="glyphicon glyphicon-plus"></span> บันทึกแผนก', ['create'], ['class' => 'btn btn-success', 'title' => 'บันทึกแผนก',]) ?>
         </div>
         <div class="col-md-6 col-xs-12">
             <div class="pull-right">
@@ -29,10 +30,9 @@ $this->params['breadcrumbs'][] = $this->title;
  <?= GridView::widget([
         'dataProvider' => $dataProvider,
         //'filterModel' => $searchModel,
-        'panel' => [
+       'panel' => [
         'type' => GridView::TYPE_SUCCESS,
-        'type' => 'success', 
-            'before'=>Html::a('<i class="glyphicon glyphicon-plus"></i> บันทึกแผนก', ['create'], ['class' => 'btn btn-success']),
+        'type' => 'success',   
         ],
         'responsive' => true,
         'hover' => true,

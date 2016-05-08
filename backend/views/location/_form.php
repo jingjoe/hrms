@@ -14,10 +14,10 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
-    <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? 'บันทึก' : 'ปรับปรุง', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+     <div class="form-group">
+        <?= Html::submitButton('<i class="glyphicon glyphicon-floppy-save"></i> ' . ($model->isNewRecord ? 'บันทึก' : 'แก้ไข'), ['class' => ($model->isNewRecord ? 'btn btn-success' : 'btn btn-warning') . ' btn-lg btn-block']) ?>
     </div>
-
     <?php ActiveForm::end(); ?>
 
 </div>
+<?= \bluezed\scrollTop\ScrollTop::widget() ?>

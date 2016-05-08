@@ -37,6 +37,9 @@ return [
             'enablePrettyUrl' => false,
             'showScriptName' => true,
         ],
+        'thaiFormatter'=>[
+        'class'=>'dixonsatit\thaiYearFormatter\ThaiYearFormatter',
+        ],
         /*
         'urlManager' => [
             'enablePrettyUrl' => true,

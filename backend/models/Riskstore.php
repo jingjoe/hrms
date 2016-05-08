@@ -86,7 +86,7 @@ class Riskstore extends \yii\db\ActiveRecord
     public function getProgramname() {
         return @$this->program->name;
     }
-// get โปรแกรมความเสี่ยง
+// get ระดับความเสี่ยง
         public function getLevel() {
         return @$this->hasOne(Level::className(), ['id' => 'level_id']);
     }

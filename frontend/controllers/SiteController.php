@@ -12,6 +12,7 @@ use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
+use yii\web\ForbiddenHttpException;
 
 /**
  * Site controller
@@ -21,12 +22,15 @@ class SiteController extends Controller
     /**
      * @inheritdoc
      */
-    public function behaviors()
-    {
+
+    public function behaviors() {
         return [
             'access' => [
                 'class' => AccessControl::className(),
                 'only' => ['logout', 'signup'],
+                'denyCallback' => function ($rule, $action) {
+            throw new ForbiddenHttpException('คุณไม่ได้รับอนุญาติให้เข้าใช้งาน!');
+            },
                 'rules' => [
                     [
                         'actions' => ['signup'],

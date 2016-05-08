@@ -5,17 +5,21 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model backend\models\Riskstore */
 
-$this->title = 'Update Riskstore: ' . $model->name;
-$this->params['breadcrumbs'][] = ['label' => 'Riskstores', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->title = 'ปรับปรุงความเสี่ยงประจำ : ' . $model->name;
+$this->params['breadcrumbs'][] = ['label' => 'ความเสี่ยงประจำ', 'url' => ['index']];
+
 ?>
 <div class="riskstore-update">
-
-    <h1><?= Html::encode($this->title) ?></h1>
-
-    <?= $this->render('_form', [
-        'model' => $model,
-    ]) ?>
-
+    <div class="bg-warning">
+        <div class="panel-body">
+            <h3><?= Html::encode($this->title) ?></h3>
+        </div>
+        <div class="panel-footer">
+            <?=
+            $this->render('_form', [
+                'model' => $model,
+            ])
+            ?>
+        </div>
+    </div>
 </div>

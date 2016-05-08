@@ -13,7 +13,8 @@ use yii\filters\VerbFilter;
  * DepartmentController implements the CRUD actions for Department model.
  */
 class DepartmentController extends Controller{
-     public function behaviors() {
+    
+    public function behaviors() {
         
         $role = isset(Yii::$app->user->identity->role) ? Yii::$app->user->identity->role : 99;
 
@@ -28,7 +29,7 @@ class DepartmentController extends Controller{
             'access' => [
                 'class' => \yii\filters\AccessControl::className(),
                 'denyCallback' => function ($rule, $action) {
-                    throw new \yii\web\ForbiddenHttpException("ไม่ได้รับอนุญาต");
+                    throw new \yii\web\ForbiddenHttpException("คุณไม่ได้รับอนุญาต");
                 },
                 'only' => ['index', 'view', 'create', 'update', 'delete'],
                 'rules' => [

@@ -10,11 +10,16 @@ $this->params['breadcrumbs'][] = ['label' => 'กลุ่มความเส�
 
 ?>
 <div class="riskgroup-update">
-
-    <h1><?= Html::encode($this->title) ?></h1>
-
-    <?= $this->render('_form', [
-        'model' => $model,
-    ]) ?>
-
+    <div class="bg-warning">
+        <div class="panel-body">
+            <h3><?= Html::encode($this->title) ?></h3>
+        </div>
+        <div class="panel-footer">
+            <?=
+            $this->render('_form', [
+                'model' => $model,
+            ])
+            ?>
+        </div>
+    </div>
 </div>
