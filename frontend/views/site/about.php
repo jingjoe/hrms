@@ -4,13 +4,39 @@
 
 use yii\helpers\Html;
 
-$this->title = 'About';
+$this->title = 'ติดต่อ';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="site-about">
-    <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>This is the About page. You may modify the following file to customize its content:</p>
 
-    <code><?= __FILE__ ?></code>
+<div class="table-responsive">
+    <table class="table table-bordered table-striped">
+        <colgroup>
+            <col class="col-md-1">
+            <col class="col-md-10">
+        </colgroup>
+        <thead>
+            <tr>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">
+                    <?php echo Html::img('@web/images/line_id.png') ?> &nbsp;&nbsp; &nbsp;
+                </th>
+                <td>
+                    <strong> วิเชียร นุ่นศรี ตำแหน่ง : นักวิชาการคอมพิวเตอร์</strong> <br>
+                    <b> การศึกษา : </b> ปริญญาตรี สาขาเทคโนโลยีคอมพิวเตอร์ มหาวิทยาลัยเทคโนโลยีราชมงคลกรุงเทพ <br>
+                    <b> ติดต่อ : <?= Html::a(' โรงพยาบาลเกาะยาวชัยพัฒน์ อำเภอเกาะยาว จังหวัดพังงา', 'http://kohyaohos.pngo.moph.go.th/', ['target' => '_blank']) ?>  E-mail : <a href="mailto:#">wichian.joe@gmail.com </a> Phone : (AIS)087-2888200  <br>
+                    <b> ความรู้ความสามารถ : </b> Web Application ,Web Server ,Linux Server ,Windows Server ,MySQL ,Network design ,Computer technical officer ,Graphic design   <br>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row"></th>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
 </div>

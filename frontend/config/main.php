@@ -8,6 +8,7 @@ $params = array_merge(
 
 return [
     'id' => 'app-frontend',
+    'name'=>'Hospital Risk Management System',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'timeZone' => 'Asia/Bangkok',

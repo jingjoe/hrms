@@ -1,17 +1,37 @@
 <?php
-
 /* @var $this yii\web\View */
 
 $this->title = 'ระบบการจัดการความเสี่ยงสำหรับโรงพยาบาล : HRMS';
 ?>
 <div class="site-index">
+    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+        </ol>
 
-    <div class="jumbotron">
-        <h1>Congratulations!</h1>
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+            <div class="item active">
+                <img src="images/slide01.png" alt="...">
+                <div class="carousel-caption">
+                    <font color="#0174DF"><h3>ระบบการจัดการความเสี่ยงสำหรับโรงพยาบาล</h3></font>
+                    <font color="#0174DF"><p>Hospital Risk Management System</p></font>    
+                </div>
+            </div>
+        </div>
 
-        <p class="lead">You have successfully created your Yii-powered application.</p>
-        
-        <p><a class="btn btn-lg btn-success" href="http://www.yiiframework.com">Get started with Yii</a></p>
+        <!-- Controls -->
+        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
     </div>
 
     <div class="body-content">
